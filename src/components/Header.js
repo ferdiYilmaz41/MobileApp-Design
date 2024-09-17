@@ -7,7 +7,7 @@ const Header = ({tempPress}) => {
   return (
     <SafeAreaView style={styles.container}>
       
-      <Image source={require("../../assets/images/indir.png")} 
+      <Image source={require("../../assets/images/yeniLogo.png")} 
          style={styles.image}
          resizeMode='contain' />
       
@@ -15,7 +15,7 @@ const Header = ({tempPress}) => {
       <CustomButton
         title="Giriş Yap"
         handleOnPress={tempPress}
-        first={"#3498DB"}
+        first={"#1F91DC"}
         second={"gray"}
       />
       
@@ -41,12 +41,12 @@ const styles = StyleSheet.create({
         borderBottomColor:'blue',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor:'#a5d3f1'
+        backgroundColor:'#1F91DC'
     },
     image:{
         
-        height:50,
-        width:'50%',
-        margin:10
+        height:70,
+        width:300,
+        marginBottom:10
       }
 })

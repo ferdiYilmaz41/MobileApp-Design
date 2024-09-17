@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     borderWidth: 1
   },
   buttonStyle: {
-    borderWidth:1,
+    borderWidth:2,
         width: 100,
         height: 50,
         borderRadius: 20,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   textStyle: {
     //marginTop: 10,
     color: 'white',
-    fontSize: 18,
+    fontSize: 19,
     fontWeight: 'bold'
   }
 })

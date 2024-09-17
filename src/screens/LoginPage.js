@@ -2,10 +2,19 @@ import {
   StyleSheet, Text, View,
   TextInput, Pressable, Image
 } from 'react-native'
-import React from 'react'
+import React, {useState} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-
+import CustomModal from '../components/CustomModal'
 const LoginPage = ({ navigation }) => {
+
+  const [sicil, setSicil] = useState('')
+  const [password, setPassword] = useState('')
+
+  const testSicil="T123456"
+  const testPassword="123456"
+
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <SafeAreaView style={styles.container}>
       <Image
@@ -23,7 +32,9 @@ const LoginPage = ({ navigation }) => {
       }}>
         Kullanıcı Giriş Ekranı
       </Text>
+      
       <View style={styles.login}>
+
         <View style={{
           flex:1,
           alignItems:'center',
@@ -37,7 +48,10 @@ const LoginPage = ({ navigation }) => {
           style={styles.textInputStyle}
           placeholder='Sicil numaranız..'
           placeholderTextColor={'gray'}
+          autoCapitalize='characters'
           maxLength={7}
+          onChangeText={(value)=> setSicil(value)}
+
         />
         <TextInput
           style={styles.textInputStyle}
@@ -45,22 +59,34 @@ const LoginPage = ({ navigation }) => {
           placeholderTextColor={'gray'}
           secureTextEntry={true}
           maxLength={10}
+          onChangeText={(value)=>setPassword(value)}
+
         />
         </View>
-
+        
         
         <Pressable
-          //onPress={handleOnPress}
+          onPress={()=>{
+            if (testSicil===sicil && password===testPassword) {
+              navigation.navigate('Profile');
+            }else{
+              setModalVisible(true)
+            }
+          }}
           style={({ pressed }) => [{
-          backgroundColor: pressed ? 'gray' : '#3498DB'
-          }, styles.buttonStyle]}>
+          backgroundColor: pressed ? 'gray' : '#1F91DC'
+          }, styles.buttonStyle]}
+          
+          >
+           
           <Text style={styles.textStyle}>
             Giriş Yap
           </Text>
         </Pressable>
+        
         <Pressable
           style={({ pressed }) => [{
-            backgroundColor: pressed ? 'gray' : '#3498DB'
+            backgroundColor: pressed ? 'gray' : '#1F91DC'
             }, styles.buttonStyle]}
             onPress={()=>navigation.navigate('Start')}
         >
@@ -68,6 +94,7 @@ const LoginPage = ({ navigation }) => {
             Anasayfaya Dön
           </Text>
         </Pressable>
+
         <Pressable>
           <Text style={{
             fontWeight:'bold',
@@ -76,8 +103,16 @@ const LoginPage = ({ navigation }) => {
             Şifremi unuttum..
           </Text>
         </Pressable>
-      </View>
 
+      </View>
+      {modalVisible && (
+        <CustomModal
+        title="Sicil numarası veya şifre yanlış!"
+        buttonTitle="Kapat"
+        modalVisible={modalVisible}
+        onClose={() => setModalVisible(false)} 
+        />
+      )}
     </SafeAreaView>
 
   )
