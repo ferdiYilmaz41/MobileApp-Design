@@ -10,6 +10,7 @@ import LoginPage from './src/screens/LoginPage.js';
 import ProfilePage from './src/screens/ProfilePage.js';
 import HomePage from './src/screens/HomePage.js';
 import MessagePage from './src/screens/MessagePage.js';
+import EditProfilePage from './src/screens/EditProfilePage.js';
 
 
 
@@ -25,6 +26,7 @@ export default function App() {
         <Stack.Screen name='Profile' component={ProfilePage} />
         <Stack.Screen name='Home' component={HomePage}/>
         <Stack.Screen name='Message' component={MessagePage}/>
+        <Stack.Screen name='EditProfile' component={EditProfilePage}/>
       </Stack.Navigator>
     </NavigationContainer>   
   );

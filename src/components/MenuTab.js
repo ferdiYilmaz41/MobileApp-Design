@@ -2,11 +2,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import  Icon1  from 'react-native-vector-icons/Entypo';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MessagePage from '../screens/MessagePage';
-import HomePage from '../screens/HomePage';
-import ProfilePage from '../screens/ProfilePage';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+
 
 const MenuTab = ({tempPress1,tempPress2,tempPress3}) => {
   return (

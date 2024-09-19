@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import MenuTab from '../components/MenuTab'
-
-
+import Icon from 'react-native-vector-icons/Feather'
+import  IconArrow  from 'react-native-vector-icons/MaterialIcons'
 
 const ProfilePage = ({ navigation }) => {
     return (
@@ -21,24 +21,52 @@ const ProfilePage = ({ navigation }) => {
             <View style={styles.infos}>
                 
                 <Text style={styles.name}>Ahmet Yılmaz</Text>
-                <Text style={styles.tel}>+90 555 555 5555</Text>
+                <Text style={styles.tel}>+90 539 829 1628</Text>
             </View>
             <View style={styles.options}>
-            <TouchableOpacity style={styles.touchable}>
-                <Text style={styles.touchableText}>Profili Düzenle</Text>
+            <TouchableOpacity style={styles.touchable}
+            onPress={()=> navigation.navigate('EditProfile')}>
+                <View style={styles.iconStyle}>
                 
+                    <Icon name='edit' size={30}/>
+                </View>
+                <Text style={styles.touchableText}>Profili Düzenle</Text>
+                <IconArrow name='keyboard-arrow-right' size={50}/>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.touchable} >
+            <View style={styles.iconStyle}>
+            <IconArrow name='password' size={30}/>
+                </View>
                 <Text style={styles.touchableText}>Şifreyi Değiştir</Text>
+                <IconArrow name='keyboard-arrow-right' size={50}/>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.touchable}>
+            <View style={styles.iconStyle}>
+            <IconArrow name='location-on' size={30}/>
+                </View>
                 <Text style={styles.touchableText}>Adresi Güncelle</Text>
+                <IconArrow name='keyboard-arrow-right' size={50}/>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.touchable}>
+            <TouchableOpacity style={styles.touchable}
+                onPress={()=> navigation.navigate('Start')}
+                
+            >
+            <View style={{
+                 borderWidth:0,
+                 height:50,
+                 width:50,
+                 borderRadius:20,
+                 alignItems:'center',
+                 justifyContent:'center',
+                backgroundColor:'#FF0055'
+            }}>
+            <IconArrow name='logout' size={30}/>
+                </View>
                 <Text style={styles.touchableText}>Çıkış Yap</Text>
+                <IconArrow name='keyboard-arrow-right' size={50}/>
             </TouchableOpacity>
             </View>
             
@@ -126,16 +154,38 @@ const styles = StyleSheet.create({
         color:'gray'
     },
     options:{
-        flex:10,
-        borderWidth:1,
-        justifyContent:'space-evenly',
-        width:'90%'
+        flex:5,
+        justifyContent:'',
+        alignItems:'center',
+        width:'90%',
+        padding:0,
+        bottom:70,
+        borderWidth:0,
     },
     touchable:{
         flexDirection:'row',
-        padding:10
+        width:'100%',
+        borderRadius:20,
+        padding:10,
+        marginBottom:50,
+        justifyContent:'space-between',
+        backgroundColor:'#f8d3c9',
+        borderWidth:0
     },
     touchableText:{
-        fontSize:18
+        fontSize:20,
+        borderWidth:0,
+        padding:10,
+        textAlign:'center',
+        justifyContent:'center'
+    },
+    iconStyle:{
+        borderWidth:0,
+        height:50,
+        width:50,
+        borderRadius:20,
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:'#78d2ed'
     }
 })
